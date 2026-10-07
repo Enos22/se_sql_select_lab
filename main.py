@@ -12,7 +12,7 @@ conn = sqlite3.connect('data.sqlite')
 df_first_five = pd.read_sql(""" 
 SELECT  employeeNumber, lastName
     FROM employees;
-    """, conn).head()
+    """, conn)
 
 print(df_first_five)
 
@@ -21,7 +21,7 @@ print(df_first_five)
 df_five_reverse = pd.read_sql("""
 SELECT lastName, employeeNumber
     FROM employees;
-    """, conn).head()
+    """, conn)
 print(df_five_reverse)
 
 # STEP 4
@@ -71,11 +71,11 @@ print(df_short_title)
 
 # STEP 8
 # Replace None with your code
-sum_total_price = pd.read_sql("""
+sum_total_price = [pd.read_sql("""
 SELECT CAST(round(priceEach * quantityOrdered) AS INTEGER) AS
 total_price
   FROM orderDetails;
-""", conn).sum()
+""", conn)['total_price'].sum()]
 
 print(sum_total_price)
 
